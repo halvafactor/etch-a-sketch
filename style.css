@@ -1,11 +1,24 @@
+button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
+    font-size: xx-large;
+}
+
+#button {
+    text-align: center;
+}
+
 .grid-row {
     display: flex;
     flex-direction: row;
 }
 
+#container {
+    --grid-size: 16;
+}
+
 .grid-square {
     aspect-ratio: 1;
-    width: calc(100% / 16);
+    width: calc(100% / var(--grid-size));
     border: solid gray 1px;
 }
 
