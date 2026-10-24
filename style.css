@@ -19,7 +19,7 @@ button {
 .grid-square {
     aspect-ratio: 1;
     width: calc(100% / var(--grid-size));
-    border: solid gray 1px;
+    /*border: solid gray 1px;*/
 }
 
 #container {
