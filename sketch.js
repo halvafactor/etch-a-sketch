@@ -1,5 +1,12 @@
 const container = document.getElementById("container");
 
+function randomizeColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 function makeGrid(gridSize = 16) {
     container.style.setProperty("--grid-size", gridSize);
     for (let i = 0; i < gridSize; i++) {
@@ -12,7 +19,7 @@ function makeGrid(gridSize = 16) {
             square.classList.add("grid-square");
             row.appendChild(square);
             square.addEventListener("mouseenter", (e) => {
-            e.target.style.backgroundColor = "#F54927";
+                e.target.style.backgroundColor = randomizeColor();
             })
         } 
     }
