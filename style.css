@@ -3,8 +3,10 @@ button {
     font-size: xx-large;
 }
 
-#button {
-    text-align: center;
+#controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .grid-row {

@@ -1,4 +1,5 @@
 const container = document.getElementById("container");
+const colorCheck = document.querySelector("#colorCheck");
 
 function randomizeColor() {
     const r = Math.floor(Math.random() * 256);
@@ -19,7 +20,10 @@ function makeGrid(gridSize = 16) {
             square.classList.add("grid-square");
             row.appendChild(square);
             square.addEventListener("mouseenter", (e) => {
-                e.target.style.backgroundColor = randomizeColor();
+                if (colorCheck.checked) {
+                    e.target.style.backgroundColor = randomizeColor();
+                }
+                else e.target.style.backgroundColor = "#F54927";
             })
         } 
     }
