@@ -1,4 +1,4 @@
-button {
+button, label {
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: xx-large;
 }
@@ -6,7 +6,9 @@ button {
 #controls {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 20px;
 }
 
 .grid-row {

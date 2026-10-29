@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const colorCheck = document.querySelector("#colorCheck");
+const opacityCheck = document.querySelector("#opacityCheck");
 
 function randomizeColor() {
     const r = Math.floor(Math.random() * 256);
@@ -9,7 +10,7 @@ function randomizeColor() {
 }
 
 function upOpacity(shade) {
-    return shade + (1 - shade)/5;
+    return shade + (1 - shade)/7;
 }
 
 function makeGrid(gridSize = 16) {
@@ -23,14 +24,20 @@ function makeGrid(gridSize = 16) {
             const square = document.createElement("div");
             square.classList.add("grid-square");
             row.appendChild(square);
-            if (colorCheck.checked) {
-                    square.style.backgroundColor = randomizeColor();
-                }
-            else square.style.backgroundColor = "#F54927";
+            let color = randomizeColor();
             let shade = 0; 
             square.style.opacity = 0;
             square.addEventListener("mouseenter", (e) => {
-                shade = upOpacity(shade);
+                if (colorCheck.checked) {
+                    e.target.style.backgroundColor = color;
+                } else {
+                    e.target.style.backgroundColor = "#F54927";
+                }
+                if (opacityCheck.checked) {
+                    shade = upOpacity(shade);
+                } else {
+                    shade = 1;
+                } 
                 e.target.style.opacity = shade;
             })
         } 
