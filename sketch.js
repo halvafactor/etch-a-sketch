@@ -8,6 +8,10 @@ function randomizeColor() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
+function upOpacity(shade) {
+    return shade + (1 - shade)/5;
+}
+
 function makeGrid(gridSize = 16) {
     container.style.setProperty("--grid-size", gridSize);
     for (let i = 0; i < gridSize; i++) {
@@ -19,11 +23,15 @@ function makeGrid(gridSize = 16) {
             const square = document.createElement("div");
             square.classList.add("grid-square");
             row.appendChild(square);
-            square.addEventListener("mouseenter", (e) => {
-                if (colorCheck.checked) {
-                    e.target.style.backgroundColor = randomizeColor();
+            if (colorCheck.checked) {
+                    square.style.backgroundColor = randomizeColor();
                 }
-                else e.target.style.backgroundColor = "#F54927";
+            else square.style.backgroundColor = "#F54927";
+            let shade = 0; 
+            square.style.opacity = 0;
+            square.addEventListener("mouseenter", (e) => {
+                shade = upOpacity(shade);
+                e.target.style.opacity = shade;
             })
         } 
     }
