@@ -18,7 +18,6 @@ function makeGrid(gridSize = 16) {
     for (let i = 0; i < gridSize; i++) {
         const row = document.createElement("div")
         row.classList.add("grid-row");
-        console.log(row);
         container.appendChild(row);
         for (let j= 0; j < gridSize; j++) {
             const square = document.createElement("div");

@@ -1,12 +1,11 @@
 button, label {
     font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
     font-size: xx-large;
+    margin: 40px;
 }
 
 #controls {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    text-align: center;
     margin: 20px;
     padding: 20px;
 }
