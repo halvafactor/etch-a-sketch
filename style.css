@@ -1,31 +1,32 @@
-button, label {
-    font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
-    font-size: xx-large;
-    margin: 40px;
+button,
+label {
+  font-family: Verdana, Geneva, Tahoma, sans-serif, monospace;
+  font-size: xx-large;
+  margin: 40px;
 }
 
 #controls {
-    text-align: center;
-    margin: 20px;
-    padding: 20px;
+  text-align: center;
+  margin: 20px;
+  padding: 20px;
 }
 
 .grid-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #container {
-    --grid-size: 16;
+  --grid-size: 16;
 }
 
 .grid-square {
-    aspect-ratio: 1;
-    width: calc(100% / var(--grid-size));
-    /*border: solid gray 1px;*/
+  aspect-ratio: 1;
+  width: calc(100% / var(--grid-size));
+  /*border: solid gray 1px;*/
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
