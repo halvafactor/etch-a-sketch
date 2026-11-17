@@ -45,24 +45,28 @@ function makeGrid(gridSize = 16) {
 
 const resetButton = document.querySelector("button");
 resetButton.addEventListener("click", function onClick() {
-  container.replaceChildren();
 
-  let gridSize = parseInt(
-    window.prompt("What size grid? Pick a number between 0 and 100."),
-  );
+  const userAnswer = window.prompt("What size grid? Pick a number between 0 and 100.");
+
+  if (userAnswer === null) {
+    return;
+  }
+
+  let gridSize = parseInt(userAnswer);
 
   if (isNaN(gridSize) === true) {
     window.alert("Pick a NUMBER, geez!");
     return onClick();
-  }
+    }
   if (gridSize > 100) {
     window.alert("Pick a smaller number!");
     return onClick();
   }
-  if (gridSize < 0) {
+  if (gridSize <= 0) {
     window.alert("Pick a bigger number!");
     return onClick();
   }
+  container.replaceChildren();
   return makeGrid(gridSize);
 });
 
