@@ -9,11 +9,13 @@ function randomizeColor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+// opacity asymptotically approaches 100%, denominator 7 made it look right after tinkering
 function upOpacity(shade) {
   return shade + (1 - shade) / 7;
 }
 
 function makeGrid(gridSize = 16) {
+  // --grid-size hands a custom property to calc in style.css
   container.style.setProperty("--grid-size", gridSize);
   for (let i = 0; i < gridSize; i++) {
     const row = document.createElement("div");
@@ -23,7 +25,8 @@ function makeGrid(gridSize = 16) {
       const square = document.createElement("div");
       square.classList.add("grid-square");
       row.appendChild(square);
-      let color = randomizeColor();
+      let color = randomizeColor(); // computed once per square to "freeze" one randomized color
+      // like `color`, this has to live in the inner loop so each square has its own `shade`
       let shade = 0;
       square.style.opacity = 0;
       square.addEventListener("mouseenter", (e) => {
@@ -49,6 +52,7 @@ resetButton.addEventListener("click", function onClick() {
     "What size grid? Pick a number between 1 and 100.",
   );
 
+  // "cancel" button simply removes window prompt
   if (userAnswer === null) {
     return;
   }
@@ -68,7 +72,7 @@ resetButton.addEventListener("click", function onClick() {
     return onClick();
   }
 
-  container.replaceChildren();
+  container.replaceChildren(); // board should clear only if a new grid is created
   return makeGrid(gridSize);
 });
 
